@@ -19,12 +19,12 @@ document.getElementById("form-login").onsubmit = (e) => {
 
     mensagem.innerHTML = "";
 
-    if (!email.includes("@") || !email.includes(".")) {
+    if (!email === "admin@123") {
         mensagem.innerHTML = "<div class ='erro'><p> Email Inválido! </p></div>";
         return;
     }
 
-    if (senha.length < 4) {
+    if (!senha === "senha") {
         mensagem.innerHTML = "<div class = 'erro'><p> Senha muito curta!</p></div>";
         return;
     }
