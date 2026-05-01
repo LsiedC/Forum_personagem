@@ -17,15 +17,21 @@ document.getElementById("form-login").onsubmit = (e) => {
     let senha = document.getElementById("senha").value;
     let mensagem = document.getElementById("mensagem");
 
+    const usuario_fixo = "admin@123";
+    const senha_fixa = "senha";
+
     mensagem.innerHTML = "";
 
-    if (!email === "admin@123") {
+    if (!email.includes("@")){
         mensagem.innerHTML = "<div class ='erro'><p> Email Inválido! </p></div>";
         return;
     }
 
-    if (!senha === "senha") {
-        mensagem.innerHTML = "<div class = 'erro'><p> Senha muito curta!</p></div>";
+    if (senha.length < 1) {
+        mensagem.innerHTML = "<div class = 'erro'><p> Senha é obrigatória!</p></div>";
+        return;
+    } else if (senha.length < 4) {
+        mensagem.innerHTML = "<div class = 'erro'><p> Senha é muito curta!</p></div>";
         return;
     }
 
@@ -35,11 +41,12 @@ document.getElementById("form-login").onsubmit = (e) => {
 
     } else {
         let salva = localStorage.getItem(email);
-        if (salva === senha) {
-            mensagem.innerHTML = "<div class= 'sucesso'><p> Login com sucesso!</p></div>";
 
+        if (email === usuario_fixo && senha === senha_fixa) {
+            mensagem.innerHTML = "<div class = 'sucesso'><p> Login com sucesso!</p></div>";
+                window.location.href = "home.html";
         } else {
-            mensagem.innerHTML = "<div class = 'erro'><p> Dados Incorretos!</p></div>;"
+            mensagem.innerHTML = "<div class = 'erro'><p> Dados Incorretos!</p></div>";
         }
     }
 
