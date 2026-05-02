@@ -5,7 +5,8 @@
     background-color: #f5f5f5;
     border-radius: 30%;
     border: 2px solid #fdd607;
-    margin: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .cont{
@@ -15,6 +16,7 @@
     width: 50%;
     border-radius: 5px;
     border: 3px solid #fdd607;
+    align-items: center;
 }
 
 .flex{
